@@ -1,7 +1,11 @@
 #!/bin/bash
 
+
+
+
 #####################################################################
-# ROS2 Foxy Fitzroy install on Ubuntu 20.04 (Focal)
+# ROS2 Foxy Fitzroy  
+# on Ubuntu 20.04 (Focal)
 # https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html
 #####################################################################
 
@@ -22,6 +26,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install ros-foxy-desktop python3-argcomplete -y
+sudo apt install ros-dev-tools -y
 
 # environment setup
 source /opt/ros/foxy/setup.bash
@@ -31,4 +36,44 @@ echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
 # rosdep
 sudo rosdep init
 sudo rosdep update 
+
+
+
+
+#####################################################################
+# Micro-ROS
+# on Ubuntu 20.04 (Focal)
+# https://micro.ros.org/docs/tutorials/core/first_application_linux/
+#####################################################################
+
+# Create a workspace and download the micro-ROS tools
+cd ~
+mkdir microros_ws
+cd microros_ws
+git clone -b $ROS_DISTRO https://github.com/micro-ROS/micro_ros_setup.git src/micro_ros_setup
+
+# Update dependencies using rosdep
+sudo apt update && rosdep update -y
+rosdep install --from-paths src --ignore-src -y
+
+# Install pip
+sudo apt-get install python3-pip -y
+
+# Build micro-ROS tools and source them
+colcon build
+source install/local_setup.bash
+
+
+
+
+
+#####################################################################
+# Arduino-client 
+# on Ubuntu 20.04 (Focal)
+# https://arduino.github.io/arduino-cli/0.24/installation/
+#####################################################################
+cd ~
+curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+
+
 
