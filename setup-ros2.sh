@@ -46,10 +46,11 @@ sudo rosdep update
 # https://micro.ros.org/docs/tutorials/core/first_application_linux/
 #####################################################################
 
-# Create a workspace and download the micro-ROS tools
+MCROS_DIR = micro-ros
+# Create a workspace and download the Micro-ROS tools
 cd ~
-mkdir microros_ws
-cd microros_ws
+mkdir ${MCROS_DIR}
+cd ${MCROS_DIR}
 git clone -b $ROS_DISTRO https://github.com/micro-ROS/micro_ros_setup.git src/micro_ros_setup
 
 # Update dependencies using rosdep
@@ -62,6 +63,9 @@ sudo apt-get install python3-pip -y
 # Build micro-ROS tools and source them
 colcon build
 source install/local_setup.bash
+# below is for later use
+echo "source ~/${MCROS_DIR}/install/local_setup.bash" >> ~/.bashrc
+
 
 
 
