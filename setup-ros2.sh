@@ -10,7 +10,7 @@
 #####################################################################
 
 # ros2 version
-ros2_ver='foxy'
+ros2_ver=foxy
 
 # set locale
 sudo apt update && sudo apt install locales -y
@@ -50,7 +50,7 @@ sudo rosdep update
 #####################################################################
 
 # workspace directory
-mcros_dir='$HOME/micro-ros'
+mcros_dir=$HOME/micro-ros
 
 # create a workspace and download the Micro-ROS tools
 mkdir ${mcros_dir}
