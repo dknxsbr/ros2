@@ -80,7 +80,7 @@ echo "source ${mcros_dir}/install/local_setup.bash" >> ~/.bashrc
 # on Ubuntu 20.04 (Focal)
 # https://arduino.github.io/arduino-cli/0.24/installation/
 #####################################################################
-cd ~
+cd $HOME
 curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
 
 
