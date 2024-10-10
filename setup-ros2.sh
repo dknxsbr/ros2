@@ -80,8 +80,19 @@ echo "source ${mcros_dir}/install/local_setup.bash" >> ~/.bashrc
 # on Ubuntu 20.04 (Focal)
 # https://arduino.github.io/arduino-cli/0.24/installation/
 #####################################################################
-cd $HOME
+
+# workspace for ino
+ino_dir=$HOME/ino-cli
+
+# create a workspace and download ino
+mkdir ${ino_dir}
+cd ${ino_dir}
 curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+
+# add path 
+echo "export PATH='${ino_dir}:$PATH'" >> ~/.bashrc
+
+
 
 
 
